@@ -1,3 +1,4 @@
+/* ---------------- CLASE 1 DE REACT
 import './App.css';
 
 function Bandas(props) {
@@ -11,6 +12,7 @@ function Bandas(props) {
 }
 
 function App() {
+  // Arrays utilizados para el componente <Bandas />
   const zen = ['ZEN', 'Jhovan Tomasevich', 'Quédate'];
   const nox = ['NoRecomendable', 'Edson lara', 'Todo está bien'];
   const amen = ['Amén', 'Marcelo Motta', 'Te quiero'];
@@ -37,6 +39,40 @@ function App() {
       cantante={nirvana[1]}
       tema={nirvana[2]}
       />
+    </div>
+  );
+}
+
+export default App;
+*/
+
+import './App.css';
+import {useState} from 'react';
+
+function App() {
+  const [contador, setContador] = useState(0);
+  const esPar = contador % 2 === 0;
+  const numeroDiez = contador === 10;
+  const resetearContador = () => {
+    setContador(0);
+  }
+  return (
+    <div>
+      {contador}
+      <br />
+      <button onClick={() => {
+        setContador(contador + 1);
+      }}>
+        aumentar
+      </button>
+      {/* Si vas a llamar a una función, no se pone el () */}
+      <button onClick={resetearContador}>
+        resetear
+      </button>
+      <br />
+      {esPar ? 'Es par' : 'Es impar'}
+      <br />
+      {numeroDiez ? 'Este es el número 10' : ''}
     </div>
   );
 }
