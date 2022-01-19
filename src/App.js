@@ -46,6 +46,24 @@ function App() {
 export default App;
 */
 
+/* ---------- ARRAY SPREAD OPERATOR
+function Suma(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
+
+function App() {
+  const nums = [6, 4, 1];
+  return (
+    <div>
+      {Suma(...nums)}
+    </div>
+  )
+}
+
+export default App;
+*/
+
+/* ------------- CLASE 2 
 import './App.css';
 import {useState} from 'react';
 
@@ -65,7 +83,6 @@ function App() {
       }}>
         aumentar
       </button>
-      {/* Si vas a llamar a una función, no se pone el () */}
       <button onClick={resetearContador}>
         resetear
       </button>
@@ -76,5 +93,54 @@ function App() {
     </div>
   );
 }
+
+export default App;
+*/
+
+// -------------- CLASE 2.1
+
+import './App.css';
+import {useState} from 'react';
+
+function App() {
+  //const [izq, setIzq] = useState(0);
+  //const [der, setDer] = useState(0);
+  const [contador, setContador] = useState({
+    izq: 0,
+    der: 0,
+    clicks: 0,
+    mensaje: 'Este es un contador de clicks:'
+  })
+  const clickIzq = () => {
+    setContador({
+      ...contador,
+      izq: contador.izq + 1,
+      clicks: contador.clicks + 1
+    })
+  }
+  const clickDer = () => {
+    setContador({
+      ...contador,
+      der: contador.der + 1,
+      clicks: contador.clicks + 2
+    })
+  }
+  return (
+    <div>
+      {contador.mensaje}
+      <br />
+      {contador.izq}
+      <button onClick={clickIzq}>
+        izquierda
+      </button>
+      <button onClick={clickDer}>
+        derecha
+      </button>
+      {contador.der}
+      <br />
+      Clicks totales: {contador.clicks}
+    </div>
+  )
+};
 
 export default App;
